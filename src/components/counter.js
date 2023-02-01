@@ -66,6 +66,7 @@ export class Counter{
             rootDiv.appendChild(counterContainer)
             return counterContainer;
         }
+
     mount(el) {
         if (el) {
             el.appendChild(this.render());
