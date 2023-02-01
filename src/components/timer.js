@@ -42,7 +42,6 @@ render(){
     const startBtn = document.createElement('button')
     const pauseBtn = document.createElement('button')
     const resetBtn = document.createElement('button')
-    const  laps = document.createElement('div')
 
     timerParagraph.innerText = "00 : 00 : 00"
 
