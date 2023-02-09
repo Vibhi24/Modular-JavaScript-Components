@@ -6,7 +6,7 @@ export class Timer{
         this.seconds = Number('00');
         this.minutes = Number('00');
         this.hours = Number('00');
-        this.interval;
+        this.interval = null;
         this.uniqueTimerId = generateUniqueId({p:"timer"})
     }
     timerT(){
@@ -57,10 +57,14 @@ render(){
     resetBtn.id = "reset"
 
     startBtn.addEventListener('click', () => {
+        if(this.interval !== null) {
+            return;
+        }
         this.interval = setInterval(this.timerT.bind(this), 1000)
     })
     pauseBtn.addEventListener('click', () => {
-            clearInterval(this.interval)
+            clearInterval(this.interval);
+            this.interval = null;
         })
     resetBtn.addEventListener('click', () => {
         
@@ -68,6 +72,7 @@ render(){
         this.seconds = 0;
         this.minutes = 0;
         this.hours = 0;
+        this.interval = null
         const timerValue = document.getElementById(this.uniqueTimerId);
         timerValue.innerText = "00 : 00 : 00";
     })
