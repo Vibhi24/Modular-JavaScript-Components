@@ -32,6 +32,9 @@ export class Counter{
             const incrementButton = document.createElement("button");
             const decrementButton = document.createElement("button");
         
+            //add text to button
+            counterHeading.innerText = "Counter";
+            countPara.innerText = `Count : ${this.count}`;
         
             // add ids to button 
             counterContainer.id = 'counterContainer'
@@ -44,22 +47,16 @@ export class Counter{
             incrementButton.id = "increment";
             decrementButton.id = "decrement";
         
-            //add text to button
-            counterHeading.innerText = "Counter";
-            countPara.innerText = `Count : ${this.count}`;
-        
             // adding event listener
             decrementButton.onclick = this.decrementCount.bind(this);
             incrementButton.addEventListener("click", this.incrementCount.bind(this))
         
             // add child element 
             counterContainer.appendChild(counter);
-            // counter.appendChild(counterHeading)
             counter.appendChild(outer_circle)
             outer_circle.appendChild(inner_circle)
             inner_circle.appendChild(countPara);
-            // counter.appendChild(countPara);
-            counterContainer.appendChild(buttonContainer)
+            counter.appendChild(buttonContainer)
             buttonContainer.appendChild(incrementButton);
             buttonContainer.appendChild(decrementButton);
             const rootDiv = document.getElementById("root")
